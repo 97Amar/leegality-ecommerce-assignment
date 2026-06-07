@@ -1,0 +1,23 @@
+@use "../assets/styles/var" as *;
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $primary-light;
+}
+
+.main-layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.main-layout-content {
+  flex: 1;
+  overflow-y: auto;
+  background-color: $text-white;
+  min-width: 0;
+}

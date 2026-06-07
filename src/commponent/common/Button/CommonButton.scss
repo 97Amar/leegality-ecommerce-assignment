@@ -1,0 +1,62 @@
+@use "../../../assets/styles/var" as *;
+
+.common-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: $radius-medium;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    outline: none;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    // Variants
+    &--primary {
+        background-color: $primary-bg;
+        color: $text-white;
+
+        &:hover {
+            background-color: $primary-dark;
+        }
+    }
+
+    &--outline-danger {
+        background-color: transparent;
+        border-color: $accent-red;
+        color: $accent-red;
+
+        &:hover {
+            background-color: $accent-red;
+            color: $text-white;
+        }
+    }
+
+    &--light {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $text-white;
+        border-color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    &--full-width {
+        width: 100%;
+    }
+
+    .btn-icon {
+        display: flex;
+        align-items: center;
+    }
+}

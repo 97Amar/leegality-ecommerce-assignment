@@ -1,0 +1,16 @@
+@use "../../assets/styles/var" as *;
+
+.filters-sidebar {
+  padding: 15px;
+}
+
+.filter-section {
+  margin-bottom: 25px;
+
+  h4 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $primary-dark;
+  }
+}

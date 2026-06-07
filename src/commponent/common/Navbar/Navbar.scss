@@ -1,0 +1,190 @@
+@use "../../../assets/styles/var" as *;
+
+.navbar {
+    height: 64px;
+    width: 100%;
+    background: $primary-bg;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0;
+
+    .navbar-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: $radius-medium;
+        color: $text-white;
+        flex-shrink: 0;
+        transition: background 0.2s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+    }
+
+    .home-link {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-white;
+        border-radius: $radius-medium;
+        flex-shrink: 0;
+        text-decoration: none;
+        transition: background 0.2s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.navbar-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .search-wrapper {
+        width: 100%;
+        max-width: 480px;
+        position: relative;
+
+        // Target actual Bootstrap / InputField DOM structure
+        .input_group_inner {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            // The actual <input> rendered by react-bootstrap Form.Control
+            .form-control {
+                height: 38px;
+                border-radius: 20px;
+                padding-left: 38px;
+                padding-right: 36px;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: $text-white;
+                font-size: 14px;
+                transition: background 0.2s, border-color 0.2s;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.55);
+                }
+
+                &:focus {
+                    background: rgba(255, 255, 255, 0.18);
+                    border-color: rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+                    color: $text-white;
+                }
+            }
+
+            // Left search icon
+            .input-left-icon {
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: rgba(255, 255, 255, 0.7);
+                display: flex;
+                align-items: center;
+                pointer-events: none;
+                z-index: 1;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            // Clear × icon
+            .input-clear-icon {
+                color: rgba(255, 255, 255, 0.7) !important;
+
+                &:hover {
+                    color: $text-white !important;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.navbar-sort {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: $text-white;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-medium;
+    transition: background 0.2s;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $accent-red;
+        color: $text-white;
+        font-size: 10px;
+        font-weight: 700;
+        min-width: 16px;
+        height: 16px;
+        border-radius: $radius-round;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid $primary-bg;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .navbar-search .search-wrapper {
+        max-width: 100%;
+    }
+}

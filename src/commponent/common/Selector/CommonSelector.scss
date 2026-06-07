@@ -1,0 +1,47 @@
+@use "../../../assets/styles/var" as *;
+
+.common-selector-container {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+
+    .common-selector {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        color: $text-white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 8px 32px 8px 12px;
+        border-radius: $radius-medium;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        transition: border-color 0.2s, background 0.2s;
+
+        &:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        option {
+            background: $primary-dark;
+            color: $text-white;
+        }
+    }
+
+    .selector-arrow {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 10px;
+            height: 6px;
+        }
+    }
+}

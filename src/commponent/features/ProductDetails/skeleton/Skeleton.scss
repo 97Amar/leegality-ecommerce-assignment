@@ -1,0 +1,35 @@
+@use "../../../../assets/styles/var" as *;
+
+.skeleton-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.skeleton-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skeleton-block {
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: $radius-medium;
+  margin-bottom: 20px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

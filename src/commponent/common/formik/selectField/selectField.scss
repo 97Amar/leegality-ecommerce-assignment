@@ -1,0 +1,18 @@
+@use "../../../../assets/styles/var" as *;
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-main;
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+}
