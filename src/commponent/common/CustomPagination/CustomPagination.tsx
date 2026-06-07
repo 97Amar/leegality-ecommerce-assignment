@@ -7,7 +7,7 @@ interface Props {
 }
 
 const CustomPagination = ({ currentPage, totalPages, onPageChange }: Props) => {
-    if (totalPages <= 1) return null;
+    if (totalPages < 1) return null;
 
     const getPageNumbers = () => {
         let startPage = Math.max(1, currentPage - 1);

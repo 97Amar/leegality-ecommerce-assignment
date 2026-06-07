@@ -80,6 +80,8 @@ const ProductDetailPage = memo(() => {
                             </button>
                         </div>
 
+                        <hr className="product-divider" />
+
                         <ProductDescription
                             text={product.description}
                         />

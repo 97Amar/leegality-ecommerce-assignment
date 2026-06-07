@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { ArrowLeftIcon } from "../../../../assets/svgIcons/svgIcons";
-import CommonButton from "../../../common/Button/CommonButton";
 import CustomPagination from "../../../common/CustomPagination/CustomPagination";
 
 interface IProductGallery {
@@ -10,34 +8,26 @@ interface IProductGallery {
 const ProductGallery = ({ images = [] }: IProductGallery) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const currentImage =
-    images[currentPage - 1] || images[0];
+  const currentImage = images[currentPage - 1] || images[0];
 
   const handlePageChange = (page: number) => {
     if (page < 1 || page > images.length) return;
     setCurrentPage(page);
   };
+
   return (
     <div className="product-gallery">
-      {/* <CommonButton
-        className="back-btn"
-        icon={<ArrowLeftIcon />}
-        label="Back"
-      /> */}
-
       <div className="image-wrapper">
         <img src={currentImage} alt="product" />
       </div>
 
-      {images.length > 0 && (
-        <div className="gallery-pagination">
-          <CustomPagination
-            currentPage={currentPage}
-            totalPages={images.length}
-            onPageChange={handlePageChange}
-          />
-        </div>
-      )}
+      <div className="gallery-pagination">
+        <CustomPagination
+          currentPage={currentPage}
+          totalPages={images.length}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };

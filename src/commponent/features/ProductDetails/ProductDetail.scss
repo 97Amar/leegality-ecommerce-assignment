@@ -1,97 +1,296 @@
 @use "../../../assets/styles/var" as *;
 
+/* ─── PAGE WRAPPER ─────────────────────────────────────── */
+
 .product-detail-page {
+  background: #f0f0f2;
+  min-height: calc(100vh - 64px);
+  padding: 20px 32px 32px;
+  box-sizing: border-box;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 20px;
 }
 
 .back-btn {
-  background: none;
-  border: none;
-  color: $primary-bg;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 25px;
-  font-size: 16px;
-  display: flex;
+  margin-bottom: 16px;
+  display: inline-flex !important;
   align-items: center;
-  transition: transform 0.2s;
+  gap: 6px;
+  padding: 7px 16px !important;
+  background: #fff !important;
+  border: 1px solid #d0d0d5 !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.18s ease, transform 0.15s ease;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    stroke: #555;
+  }
 
   &:hover {
-    color: $primary-dark;
-    transform: translateX(-5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   }
 }
+
+/* ─── TWO-COLUMN LAYOUT ─────────────────────────────────── */
 
 .product-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 28px;
+  align-items: start;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 30px;
   }
 }
 
-.right-panel {
+/* ─── LEFT PANEL (no card — image floats on gray) ─────── */
+
+.left-panel {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  align-items: center;
 }
 
-.product-actions {
+/* ─── RIGHT PANEL (white card) ──────────────────────────── */
+
+.right-panel {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  border: 1px solid #e4e4e7;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
   display: flex;
-  gap: 15px;
-  margin-top: 10px;
+  flex-direction: column;
+}
 
-  .add-to-cart-big {
-    flex: 1;
-    max-width: 300px;
-    padding: 16px 30px;
-    background: $primary-bg;
-    color: $text-white;
-    border: none;
-    border-radius: $radius-medium;
-    font-size: 16px;
+/* ─── PRODUCT INFO ──────────────────────────────────────── */
+
+.product-info {
+  h1 {
+    font-size: 26px;
     font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 4px 15px rgba(52, 73, 94, 0.2);
+    color: #1a1a1a;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
 
-    &:hover {
-      background: $primary-dark;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(52, 73, 94, 0.3);
+  .price-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: #f5a623;
+    font-size: 16px;
+    line-height: 1;
+
+    span {
+      color: #888;
+      font-size: 13px;
+      margin-left: 3px;
+    }
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 18px;
+
+    p {
+      margin: 0;
+      color: #444;
+      font-size: 14px;
+    }
+
+    strong {
+      color: #1a1a1a;
     }
   }
 }
 
-// Subcomponents styling (Simplified overview, assuming they might have their own or shared classes)
-.description-section,
-.reviews-section {
-  padding-top: 30px;
-  border-top: 1px solid $border-color;
+/* ─── ADD TO CART ───────────────────────────────────────── */
 
-  h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    color: $primary-dark;
-  }
+.product-actions {
+  margin-bottom: 20px;
 
-  p {
-    color: $text-secondary;
-    line-height: 1.6;
+  .add-to-cart-big {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #2d4059;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      background: #1e2e42;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 }
 
-@media (max-width: 600px) {
-  .product-detail-page {
-    padding: 15px;
+/* ─── DIVIDER between Add-to-Cart and description ───────── */
+
+.product-divider {
+  border: none;
+  border-top: 1px solid #e4e4e7;
+  margin: 0 0 18px;
+}
+
+/* ─── DESCRIPTION ───────────────────────────────────────── */
+
+.product-description {
+  margin-bottom: 0;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
   }
 
-  .add-to-cart-big {
-    max-width: 100%;
+  p {
+    line-height: 1.7;
+    color: #444;
+    font-size: 14px;
+    margin: 0;
   }
+
+  // Kill hyperlink colors — API descriptions contain <a> tags
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: text;
+  }
+}
+
+/* ─── REVIEWS ───────────────────────────────────────────── */
+
+.product-reviews {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e4e4e7;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+  }
+
+  .review-card {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+
+      .reviewer-name {
+        font-weight: 600;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+
+      .review-stars {
+        display: flex;
+        align-items: center;
+        color: #f5a623;
+        font-size: 13px;
+        gap: 2px;
+
+        .review-count {
+          color: #888;
+          font-size: 12px;
+          margin-left: 2px;
+        }
+      }
+    }
+
+    p {
+      color: #555;
+      line-height: 1.55;
+      font-size: 13px;
+      margin: 0;
+    }
+  }
+}
+
+/* ─── GALLERY (left panel) ──────────────────────────────── */
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e4e4e7;
+}
+
+.image-wrapper img {
+  max-height: 300px;
+  max-width: 90%;
+  width: auto;
+  object-fit: contain;
+}
+
+.gallery-pagination {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

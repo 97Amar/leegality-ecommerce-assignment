@@ -13,10 +13,10 @@ const ProductInfo = ({ product }: IProductInfoProps) => {
           ${product.price}
         </span>
 
-       <div className="rating">
-  {"⭐".repeat(Math.round(product.rating))}
-  <span> ({product.rating})</span>
-</div>
+        <div className="rating">
+          {"★".repeat(Math.round(product.rating))}{"☆".repeat(5 - Math.round(product.rating))}
+          <span>({product.rating})</span>
+        </div>
       </div>
 
       <div className="meta">
